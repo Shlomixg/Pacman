@@ -1,41 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Mine Sweeper</title>
-    <link rel="stylesheet" href="css/main.css">
+  <meta charset="utf-8">
+  <title>Pacman</title>
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="css/game.css" />
 </head>
 
-<body onload="initGame()">
-    <main>
-        <div class="header">
-            Mine Sweeper
-        </div>
-        <div class="btn-levels">
-            <button onclick="initGame(4)">4x4 Board</button>
-            <button onclick="initGame(6)">6x6 Board</button>
-            <button onclick="initGame(8)">8x8 Board</button>
-            <button onclick="initGame(12)">12x12 Board</button>
-            <button onclick="initGame(16)">16x30 Board</button>
-        </div>
-        <div class="game">
-            <div class="game-data">
-                <div class="record-time"></div>
-                <ul>
-                    <li class="mines-counter">0</li>
-                    <li class="emoji-status" onclick="initGame()"></li>
-                    <li class="timer"></li>
-                </ul>
-            </div>
-            <table class="tbl-sweeper">
-                <tbody class="board">
+<body onload="init()" onkeydown="movePacman(event)">
 
-                </tbody>
-            </table>
-        </div>
-    </main>
-    <script src="js/main.js"></script>
+  <div class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="btn-close" onclick="closeModal()">&times;</button>
+        <h1></h1>
+      </div>
+      <div class="modal-body">
+        <button class="btn-play" onclick="closeModal(); init();">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <h3>Score:
+      <span>0</span>
+    </h3>
+  </header>
+  <div class="boardContainer"></div>
+
+  <script src="js/general.js"></script>
+  <script src="js/pacman.js"></script>
+  <script src="js/ghosts.js"></script>
+  <script src="js/game.js"></script>
 </body>
 
 </html>
